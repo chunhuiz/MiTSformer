@@ -1,20 +1,34 @@
-# MiTSformer
-This is the PyTorch implementation of **MiTSformer** (NeurIPS 2024). 
+
+<div align="center">
+
+# Addressing Spatial-Temporal Heterogeneity: General Mixed Time Series Analysis via Latent Continuity Recovery and Alignment
+
+_This is the official implementation of **MiTSformer** in NeurIPS 2024*._
+
+</div>
+
+<p align="center">
+    ⛰🌟&nbsp;<a href="#-Mixed-Time-Series">Mixed Time Series</a>
+    | 🚀&nbsp;<a href="#-MiTSformer">MiTSformer</a>
+    | ✅&nbsp;<a href="#-Setup">Setup</a>
+    | 📊&nbsp;<a href="#-Train-and-Evaluation">Train and Evaluation</a>
+</p>
+
 
 MiTSformer is a task-general mixed time series analysis framework, which recovers and aligns latent continuity of mixed variables for complete and reliable spatial-temporal modeling, being amenable to various analysis tasks and establishing SOTA performance.
 
-## Mixed Time Series
+## 🌟 Mixed Time Series
 Mixed time series, encompassing both continuous variables and discrete variables are frequently encountered in practice. Mixed time series presents the spatial-temporal heterogeneity problem, which is caused by the discrepancies in temporal variation properties and distribution types between continuous variables and discrete variables:
 
 ![Mixed time series and spatial-temporal heterogeneity problem](./figs/mixed_time_series.png)
 
 
-## MiTSformer
+## 🚀 MiTSformer
 MiTSformer addresses the spatial-temporal heterogeneity problem from the perspective of latent continuity recovery and alignment. The architecture and its key components of MiTSformer are shown below:
 
 ![MiTSformer](./figs/model_structure.jpg)
 
-## Setup
+## ✅ Setup
 
 ### 1. Create conda environment(Optional)
 ~~~
@@ -66,7 +80,7 @@ Here is a summary of supported datasets.
 For each dataset, we randomly select (n = ⌊0.5p⌋) variables as DVs, whose values are first Min-max normalized and then discretized into the value of 0 or 1 with the threshold 0.5 as int(MinMax-Norm(x) > 0.5).
 
 
-### 4. Train and evaluate MiTSformer.
+## 📊 Train and Evaluation.
 We provide the experiment scripts for MiTSformer under the folder ./scripts/
 e.g., for mixed time series classification task:
 ~~~
