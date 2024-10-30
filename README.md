@@ -3,12 +3,12 @@
 
 # Addressing Spatial-Temporal Heterogeneity: General Mixed Time Series Analysis via Latent Continuity Recovery and Alignment
 
-_This is the official implementation of **MiTSformer** in NeurIPS 2024*._
+_This is the official implementation of **MiTSformer** in NeurIPS 2024._
 
 </div>
 
 <p align="center">
-    ⛰🌟&nbsp;<a href="#-Mixed-Time-Series">Mixed Time Series</a>
+    | 🌟&nbsp;<a href="#-Mixed-Time-Series">Mixed Time Series</a>
     | 🚀&nbsp;<a href="#-MiTSformer">MiTSformer</a>
     | ✅&nbsp;<a href="#-Setup">Setup</a>
     | 📊&nbsp;<a href="#-Train-and-Evaluation">Train and Evaluation</a>
