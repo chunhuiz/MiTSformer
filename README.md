@@ -43,7 +43,7 @@ pip install -r requirements.txt
 ~~~
 
 ### 3. Prepare dataset
-All the datasets used in our paper are publicly available. We provide the relevant references and links in the article. 
+All the datasets used in our paper are publicly available. We provide the relevant references and links in the article. Also, you can obtain the well pre-processed datasets from [Google Drive](https://drive.google.com/drive/folders/13Cg1KYOlzM5C7K8gK8NfC-F3EYxkM3D2) or [Baidu Drive](https://pan.baidu.com/share/init?surl=r3KhGd0Q9PJIUZdfEYoymg&pwd=i9iy)
 
 |Task|Dataset|Reference/Link|
 |:-|:-|:-|
@@ -119,5 +119,18 @@ Also, you can specify GPU and tune other hyperparameters, e.g., adding:
 ~~~
 --gpu 0 --d_model 128 --n_layers 1 --smooth_loss_w 0.5 --learning_rate 0.001
 ~~~
+
+## Acknowledgement
+
+We appreciate the following github repos a lot for their valuable code base or datasets:
+
+https://github.com/thuml/Time-Series-Library
+
+https://github.com/zhouhaoyi/Informer2020
+
+https://github.com/thuml/Anomaly-Transformer
+
+https://github.com/thuml/Flowformer
+
 
 
