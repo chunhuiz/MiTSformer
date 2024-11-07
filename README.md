@@ -7,6 +7,14 @@ _This is the official implementation of **MiTSformer** in NeurIPS 2024._
 
 </div>
 
+<div align="center">
+
+<a href="https://pytorch.org/get-started/locally/"><img alt="PyTorch" src="https://img.shields.io/badge/PyTorch-ee4c2c?logo=pytorch&logoColor=white"></a>
+[![Paper](https://img.shields.io/badge/paper-neurips.2024.96039-B31B1B.svg)](https://neurips.cc/virtual/2024/poster/96039)
+[![Conference](https://img.shields.io/badge/NeurIPS-2024-4b44ce.svg)](https://neurips.cc)
+
+</div>
+
 <p align="center">
     🌟&nbsp;<a href="#-Mixed-Time-Series">Mixed Time Series</a>
     | 🚀&nbsp;<a href="#-MiTSformer">MiTSformer</a>
@@ -120,6 +128,23 @@ Also, you can specify GPU and tune other hyperparameters, e.g., adding:
 --gpu 0 --d_model 128 --n_layers 1 --smooth_loss_w 0.5 --learning_rate 0.001
 ~~~
 
+## Citation
+
+If you find our work useful, please consider citing our work.
+
+- [Addressing Spatial-Temporal Heterogeneity: General Mixed Time Series Analysis via Latent Continuity Recovery and Alignment.](https://openreview.net/forum?id=EMV8nIDZJn) Jiawei Chen and Chunhui Zhao, In the Thirty-Eighth Annual Conference on Neural Information Processing Systems (NeurIPS), 2024.
+
+```BibTeX
+@inproceedings{
+chen2024mitsformer,
+title={Addressing Spatial-Temporal Heterogeneity: General Mixed Time Series Analysis via Latent Continuity Recovery and Alignment},
+author={ Jiawei Chen and Chunhui Zhao},
+booktitle={The Thirty-eighth Annual Conference on Neural Information Processing Systems},
+year={2024},
+url={https://openreview.net/forum?id=EMV8nIDZJn}
+}
+```
+
 ## Acknowledgement
 
 We appreciate the following github repos a lot for their valuable code base or datasets:
@@ -131,6 +156,7 @@ https://github.com/zhouhaoyi/Informer2020
 https://github.com/thuml/Anomaly-Transformer
 
 https://github.com/thuml/Flowformer
+
 
 
 
