@@ -128,7 +128,7 @@ Also, you can specify GPU and tune other hyperparameters, e.g., adding:
 --gpu 0 --d_model 128 --n_layers 1 --smooth_loss_w 0.5 --learning_rate 0.001
 ~~~
 
-## Citation
+## 🔗 Citation
 
 If you find our work useful, please consider citing our work.
 
