@@ -1,4 +1,7 @@
-from dispe import *
+import torch
+import torch.nn as nn
+import torch.nn.functional as F
+
 from layers_mits import FullAttention, AttentionLayer, Recover_CNN, ReverseLayerF
 
 
