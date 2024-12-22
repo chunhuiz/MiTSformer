@@ -791,7 +791,7 @@ class UCRloader(Dataset):
     def instance_norm(self, case):
         mean = case.mean(0, keepdim=True)
         case = case - mean
-        stdev = torch.sqrt(torch.var(case, dim=1, keepdim=True, unbiased=False) + 1e-5)
+        stdev = torch.sqrt(torch.var(case, dim=0, keepdim=True, unbiased=False) + 1e-5)
         case /= stdev
         return case
 
@@ -808,115 +808,4 @@ class UCRloader(Dataset):
 
 
 
-def lorenz(x, t, F):
-    '''Partial derivatives for Lorenz-96 ODE.'''
-    p = len(x)
-    dxdt = np.zeros(p)
-    for i in range(p):
-        dxdt[i] = (x[(i+1) % p] - x[(i-2) % p]) * x[(i-1) % p] - x[i] + F
-
-    return dxdt
-
-
-def simulate_lorenz_96(p, T, F=10.0, delta_t=0.1, sd=0.1, burn_in=1000,
-                       seed=0):
-    if seed is not None:
-        np.random.seed(seed)
-
-    # Use scipy to solve ODE.
-    x0 = np.random.normal(scale=0.01, size=p)
-    t = np.linspace(0, (T + burn_in) * delta_t, T + burn_in)
-    X = odeint(lorenz, x0, t, args=(F,))
-    X += np.random.normal(scale=sd, size=(T + burn_in, p))
-
-    # Set up Granger causality ground truth.
-    GC = np.zeros((p, p), dtype=int)
-    for i in range(p):
-        GC[i, i] = 1
-        GC[i, (i + 1) % p] = 1
-        GC[i, (i - 1) % p] = 1
-        GC[i, (i - 2) % p] = 1
-
-    return X[burn_in:], GC
-
-
-
-
-def generate_mixed_lorenz_96(p=10, dis_dim=5, T=1000, F=5, length_per_batch=50,
-                       device=torch.device('cuda')):
-    typeflag = []
-    for i in range(dis_dim):
-        typeflag.append(0)
-    for i in range(dis_dim, p):
-        typeflag.append(1)
-
-    random.shuffle(typeflag)
-
-    X_np, GC = simulate_lorenz_96(p=p, F=F, T=T)
-    min_max_scaler = preprocessing.MinMaxScaler()
-    Y = min_max_scaler.fit_transform(X_np)
-    X_pre = torch.tensor(Y[np.newaxis], dtype=torch.float32).reshape(-1, length_per_batch, p).numpy()
-
-
-
-    # instance norm !!!
-    X_real = np.zeros_like(X_pre)
-    for i in range(X_real.shape[0]):
-        for j in range(X_real.shape[-1]):
-            instance = X_pre[i, :, j]
-            instance_norm = (instance - np.min(instance)) / (np.max(instance) - np.min(instance))
-            X_real[i, :, j] = instance_norm
-    X_real = torch.tensor(X_real, dtype=torch.float32, device=device)
-    X = deepcopy(X_real)
-
-    for i in range(len(typeflag)):
-        if typeflag[i] == 0:
-            X[:, :, i] = X[:, :, i] > 0.5
-
-    return X_real, X, GC,typeflag
-
-
-class LORENZ_Loader(Dataset):
-    def __init__(self,root_path,win_size=100, step=1, flag="train"):
-        self.flag = flag
-        self.step = step
-        self.win_size = win_size
-        self.scaler = StandardScaler()
-        data,_ = simulate_lorenz_96(p=10, T=200, F=5)
-        self.scaler.fit(data)
-        data = self.scaler.transform(data)
-        test_data,_ = simulate_lorenz_96(p=10, T=100, F=5)
-        self.test = self.scaler.transform(test_data)
-        self.train = data
-        data_len = len(self.train)
-        self.val = self.train[(int)(data_len * 0.5):]
-        self.test_labels = self.test
-        print("test:", self.test.shape)
-        print("train:", self.train.shape)
-
-
-    def __len__(self):
-
-        if self.flag == "train":
-            return (self.train.shape[0] - self.win_size) // self.step + 1
-        elif (self.flag == 'val'):
-            return (self.val.shape[0] - self.win_size) // self.step + 1
-        elif (self.flag == 'test'):
-            return (self.test.shape[0] - self.win_size) // self.step + 1
-        else:
-            return (self.test.shape[0] - self.win_size) // self.win_size + 1
-
-    def __getitem__(self, index):
-        index = index * self.step
-        if self.flag == "train":
-            return np.float32(self.train[index:index + self.win_size]), np.float32(self.test_labels[0:self.win_size])
-        elif (self.flag == 'val'):
-            return np.float32(self.val[index:index + self.win_size]), np.float32(self.test_labels[0:self.win_size])
-        elif (self.flag == 'test'):
-            return np.float32(self.test[index:index + self.win_size]), np.float32(
-                self.test_labels[index:index + self.win_size])
-        else:
-            return np.float32(self.test[
-                              index // self.step * self.win_size:index // self.step * self.win_size + self.win_size]), np.float32(
-                self.test_labels[index // self.step * self.win_size:index // self.step * self.win_size + self.win_size])
 
