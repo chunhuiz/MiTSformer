@@ -132,7 +132,7 @@ Also, you can specify GPU and tune other hyperparameters, e.g., adding:
 
 If you find our work useful, please consider citing our work.
 
-- [Addressing Spatial-Temporal Heterogeneity: General Mixed Time Series Analysis via Latent Continuity Recovery and Alignment.](https://openreview.net/forum?id=EMV8nIDZJn) Jiawei Chen and Chunhui Zhao, In the Thirty-Eighth Annual Conference on Neural Information Processing Systems (NeurIPS), 2024.
+- [Addressing Information Asymmetry: Deep Temporal Causality Discovery for Mixed Time Series.](https://ieeexplore.ieee.org/document/10937933) Jiawei Chen and Chunhui Zhao, IEEE Transactions on Pattern Analysis and Machine Intelligence, vol. 47, no. 7, pp. 5723-5741, July 2025, doi: 10.1109/TPAMI.2025.3553957.
 
 - [Addressing Information Asymmetry: Deep Temporal Causality Discovery for Mixed Time Series.](https://ieeexplore.ieee.org/document/10937933) Jiawei Chen and Chunhui Zhao, IEEE Transactions on Pattern Analysis and Machine Intelligence, doi: 10.1109/TPAMI.2025.3553957.
 
@@ -146,14 +146,14 @@ If you find our work useful, please consider citing our work.
   year={2024}
 }
 
-@ARTICLE{Chen2025MiTCD,
+@ARTICLE{10937933,
   author={Chen, Jiawei and Zhao, Chunhui},
   journal={IEEE Transactions on Pattern Analysis and Machine Intelligence}, 
   title={Addressing Information Asymmetry: Deep Temporal Causality Discovery for Mixed Time Series}, 
   year={2025},
-  volume={},
-  number={},
-  pages={1-18},
+  volume={47},
+  number={7},
+  pages={5723-5741},
   doi={10.1109/TPAMI.2025.3553957}}
 
 ```
