@@ -134,7 +134,7 @@ If you find our work useful, please consider citing our work.
 
 - [Addressing Spatial-Temporal Heterogeneity: General Mixed Time Series Analysis via Latent Continuity Recovery and Alignment.](https://openreview.net/forum?id=EMV8nIDZJn) Jiawei Chen and Chunhui Zhao, In the Thirty-Eighth Annual Conference on Neural Information Processing Systems (NeurIPS), 2024.
 
-- - [Addressing Information Asymmetry: Deep Temporal Causality Discovery for Mixed Time Series.](https://ieeexplore.ieee.org/document/10937933) Jiawei Chen and Chunhui Zhao, IEEE Transactions on Pattern Analysis and Machine Intelligence, doi: 10.1109/TPAMI.2025.3553957.
+- [Addressing Information Asymmetry: Deep Temporal Causality Discovery for Mixed Time Series.](https://ieeexplore.ieee.org/document/10937933) Jiawei Chen and Chunhui Zhao, IEEE Transactions on Pattern Analysis and Machine Intelligence, doi: 10.1109/TPAMI.2025.3553957.
 
 ```BibTeX
 @article{chen2024addressing,
