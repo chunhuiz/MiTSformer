@@ -130,11 +130,13 @@ Also, you can specify GPU and tune other hyperparameters, e.g., adding:
 
 ## 🔗 Citation
 
-If you find our work useful, please consider citing our work.
+If you find our work useful, please consider citing our paper:
 
+- [Addressing Spatial-Temporal Heterogeneity: General Mixed Time Series Analysis via Latent Continuity Recovery and Alignment.](https://proceedings.neurips.cc/paper_files/paper/2024/hash/1feb87871436031bdc0f2beaa62a049b-Abstract-Conference.html) Jiawei Chen and Chunhui Zhao, In the Thirty-Eighth Annual Conference on Neural Information Processing Systems (NeurIPS), 2024, 37: 17910-17946.
+
+  
 - [Addressing Information Asymmetry: Deep Temporal Causality Discovery for Mixed Time Series.](https://ieeexplore.ieee.org/document/10937933) Jiawei Chen and Chunhui Zhao, IEEE Transactions on Pattern Analysis and Machine Intelligence, vol. 47, no. 7, pp. 5723-5741, July 2025, doi: 10.1109/TPAMI.2025.3553957.
 
-- [Addressing Information Asymmetry: Deep Temporal Causality Discovery for Mixed Time Series.](https://ieeexplore.ieee.org/document/10937933) Jiawei Chen and Chunhui Zhao, IEEE Transactions on Pattern Analysis and Machine Intelligence, doi: 10.1109/TPAMI.2025.3553957.
 
 ```BibTeX
 @article{chen2024addressing,
